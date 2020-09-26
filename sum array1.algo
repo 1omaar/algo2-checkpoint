@@ -1,0 +1,37 @@
+ALGORITHM sommation elements
+VAR
+    set1: ARRAY_OF INTEGER[4];
+    set2: ARRAY_OF INTEGER[5];
+    htab:HASH_TABLE<INTEGER,INTEGER>;
+    sum,j,i:INTEGER;
+BEGIN
+ i:=0;
+ write ("enter set1 and set2");
+   FOR i FROM 0 TO 4 STEP i++  DO  
+   read (set1[i]); 
+   END_FOR
+   FOR i FROM 0 TO 5 STEP i++  DO
+      read (set2[i]);
+   END_FOR
+   j:=1;
+   FOR i FROM 0 TO set1.length-1 STEP i++  DO
+       htab.insert(set1[i],1);
+      IF (set1[i]=set2[i]) THEN
+      j:=j+1;
+          htab.insert(set1[i],j);
+      ELSE
+          htab.insert(set2[i],1);
+      END_IF
+   END_FOR
+   sum:=0;
+   i:=0;
+   FOR i FROM 0 TO htab.length-1 STEP i++  DO
+       IF (htab.lookup([i])=1) THEN
+           sum:=sum+htab.get([i]);
+      BREAK;
+       END_IF
+   END_FOR
+   write(sum);
+
+
+END

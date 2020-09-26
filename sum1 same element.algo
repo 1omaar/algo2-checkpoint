@@ -1,0 +1,27 @@
+ALGORITHM sommation same elements
+VAR
+    set1 : ARRAY_OF INTEGER[5];
+    set2 : ARRAY_OF INTEGER[4];
+    i,j,sum:INTEGER;
+BEGIN
+    i:=0;
+ write ("enter set1 and set2");
+   FOR i FROM 0 TO 5 STEP i++  DO  
+   read (set1[i]); 
+   END_FOR
+   FOR i FROM 0 TO 4 STEP i++  DO
+      read (set2[i]);
+   END_FOR
+    j:=0;
+    sum:=0;
+    FOR i FROM 0 TO set1.length-1 STEP i++  DO
+        WHILE (j<=set2.length-1) DO
+        IF (set1[i]=set2[j]) THEN
+            sum:=sum+set2[j];
+            BREAK;
+        END_IF
+            j:=j+1;
+        END_WHILE
+    END_FOR
+    write (sum);
+END
